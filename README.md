@@ -4,4 +4,4 @@
 - npm i react-redux
 - npm i redux-thunk
 - npm i react-bootstrap
-axios
+- axios
