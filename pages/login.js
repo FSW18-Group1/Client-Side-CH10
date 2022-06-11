@@ -12,8 +12,6 @@ export default function Login() {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    // const [cookies, setCookie] = useCookies(['token'])
-    // const {loginResult} = useSelector((state) => state.login)
     const dispatch = useDispatch()
     const router = useRouter()
 
@@ -73,7 +71,7 @@ export default function Login() {
                 </div>
                 <div className="form-bottom mx-auto py-2">
                     <p className="text-center py-2" style={{fontSize:'14px'}}>New to Letitgo-games?</p>
-                    <NoSubmit command="CREATE AN ACCOUNT"  />
+                    <div onClick={() => router.push('/signup')}><NoSubmit command="CREATE AN ACCOUNT" /></div>
                 </div>
             </div> 
         </div>

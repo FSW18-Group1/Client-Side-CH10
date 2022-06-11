@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import Link from 'next/link'
-import {Dropdown} from 'react-bootstrap'
+import { useRouter } from 'next/router';
 import Navbar from '../component/nav'
 import Content from '../component/content'
 import Footer from '../component/footer'
 import SearchBar from '../component/search'
 import DropMenu from '../component/dropMenu';
 import { authenticatedAction } from '../redux/actions/authenticated'
-import { useRouter } from 'next/router';
+import { getLeaderboard } from "../redux/actions/leaderBoard";
+
 
 export default function Home() {
     const  dispatch = useDispatch();
@@ -18,6 +19,7 @@ export default function Home() {
     useEffect(()=> {
         console.log('1. masuk useEffect')
         document.title = 'Home'
+        dispatch(getLeaderboard())
         dispatch(authenticatedAction())
     }, [dispatch])
 
@@ -34,7 +36,7 @@ export default function Home() {
                     <SearchBar />
                 </div>
                 <div className='d-flex justify-content-between nav-side' style={{paddingRight:"2em"}}>
-                    <DropMenu />
+                    <DropMenu user = {data} />
                 </div>
             </div>
             }
@@ -55,10 +57,3 @@ export default function Home() {
         </>
     )
 }
-
-
-                    // <div className='text-center mx-3'>
-                    //     <p className='no-space'>hello, {data.username}</p> 
-                    //     {/* <p className='no-space'>{data?.username}</p>  */}
-                    //     {/* <p>{data?.email}</p>  */}
-                    // </div>    
