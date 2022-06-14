@@ -87,7 +87,7 @@ function GameDetail() {
                           return(
                             <tr key={player.id}>
                               <td className='text-white'>{count++}</td>
-                              <Link href={`https://letitgo-game.web.app/gamepage/playerprofile/${player.id}`}>
+                              <Link href={`profile/${player.id}`}>
                                 <td><a className='text-white ahref'>{player.username}</a></td>
                               </Link>
                               <td className='text-white'>{player.score}</td>

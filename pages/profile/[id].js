@@ -3,37 +3,23 @@ import {useRouter} from 'next/router'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from 'react';
 import { authenticatedAction } from '../../redux/actions/authenticated';
-import axios from 'axios'
-import useSWR from 'swr'
-
-// export async function getServerSideProps() {
-//     const res = await fetch('https://jsonplaceholder.typicode.com/users/1')
-//     const data = await res.json();
-//     return{
-//         props: {
-//             user: data.username
-//         }
-//     }
-// }
+import { getProfilePlayer } from '../../redux/actions/profileplayer';
 
 export default function ProfilePlayer({user}) {
     const  dispatch = useDispatch();
     const {token} = useSelector((state) => state.authenticatedReducer)
-    const router = useRouter();
-    const {id} = router.query;
-    const config = {
-        headers: { Authorization: `Bearer ${token}`}
-    }
-    const fetcher = url => axios.get('https://challenge-chapter-9.herokuapp.com/profile/13',config).then(res => res.data)
-    const {data, error} = useSWR('/api/data', fetcher)
-
+    const router = useRouter()
+    const id = router.query
+    console.log('5', id)
+    const {getProfilePlayerEmail, getProfilePlayerUsername} = useSelector((state) => state.ProfilePlayerReducer)
+    console.log("10", getProfilePlayerEmail, getProfilePlayerUsername)
 
     useEffect(()=> {
-        console.log(token)
+        console.log(id)
         document.title='profile'
         dispatch(authenticatedAction())
-
-      }, [dispatch])
+        dispatch(getProfilePlayer(id))
+      }, [])
     return(
         <>        
             <div className="section">
@@ -42,15 +28,14 @@ export default function ProfilePlayer({user}) {
                     <h1 className="py-4">Player Profile</h1>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email</Form.Label>
-                        <Form.Control type="email"  disabled />
+                        <Form.Control type="email" value={getProfilePlayerEmail} disabled />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Username</Form.Label>
-                        <Form.Control type="text" disabled />
+                        <Form.Control type="text" value={getProfilePlayerUsername} disabled />
                     </Form.Group>              
                 </Form>
             </div>
         </>
     )
 }
-
