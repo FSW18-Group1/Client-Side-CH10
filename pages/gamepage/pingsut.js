@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from 'next/router'
 import Image from 'next/image';
 import scissors from "../../public/scissor.png";
 import paper from "../../public/paper.png";
 import rock from "../../public/rock.png";
 import axios from 'axios';
+import Link from 'next/link'
 import { useCookies } from 'react-cookie';
 import { authenticatedAction } from '../../redux/actions/authenticated'
 
@@ -17,10 +19,29 @@ const Game_2 = () => {
   const [result, setResult] = useState(0)
   const [gameOver, setGameOver] = useState(false)
   const choices = [rock, paper, scissors]
-  const [authenticated, setAuthenticated] = useState(false)
+  const router = useRouter()
 
   const {token, data} = useSelector((state) => state.authenticatedReducer)
-
+  
+  const updateScore = (e) => {
+    e.preventDefault()
+    const url = 'https://challenge-chapter-9.herokuapp.com/games/1'
+    const form = {
+      id: data.id,
+      points: result
+    }
+    axios.put(url, form)
+    .then(res => {
+        console.log(res)
+        router.push('/gamepage')
+    })
+    .catch(
+        err => {
+          console.log(err)
+          router.push('/gamepage')
+        }
+    )
+  }
 
   const handleClick = (value) => {
     setUserChoice(value)    
@@ -84,6 +105,13 @@ const Game_2 = () => {
   }, [computerChoice, userChoice])
 
   return (
+    <>
+    {!token && 
+      <div className='section pt-4'>
+        <h2 className='container'>you must <Link href={'/login'}><a>LOGIN</a></Link> first</h2>
+      </div>
+      }
+    {token &&
     <div className="container">
       <h1 className='heading'>SUWIT</h1>
       <div className='d-flex justify-content-between'>
@@ -126,7 +154,7 @@ const Game_2 = () => {
       
       <div className='result'>
         <p className="winner">{turnResult}</p>
-        <form>
+        <form onSubmit={updateScore}>
           <input className="form-control form-width" id="score" name="score" type='number' value= {result} disabled/>
             {gameOver && 
               <div className='d-flex flex-column '> 
@@ -141,6 +169,8 @@ const Game_2 = () => {
         </form>
       </div>
     </div>
+    }  
+    </>
   )
 }
 
