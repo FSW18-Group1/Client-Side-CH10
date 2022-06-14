@@ -1,8 +1,12 @@
 import { Form, Button, Dropdown } from "react-bootstrap";
-import { useSelector } from "react-redux/es/exports";
+import { useDispatch, useSelector } from "react-redux/es/exports";
+import { useRouter } from "next/router";
 
 export default function Profile() {
   const profile = useSelector((state) => state);
+
+  const dispatch = useDispatch();
+  const router = useRouter();
 
   return (
     <>
