@@ -3,7 +3,7 @@ import axios from "axios";
 export const GET_PROFILE = "GET_PROFILE";
 export const UPDATE_PROFILE = "UPDATE_PROFILE";
 
-export const getProfile = () => {
+export const putProfile = (data) => {
   return (dispatch) => {
     //loading
     dispatch({
@@ -14,11 +14,13 @@ export const getProfile = () => {
         errorMessage: false,
       },
     });
+    const id = data.id;
+    console.log("masuk", data);
 
     //get API
     axios({
-      method: "GET",
-      url: "https://challenge-chapter-9.herokuapp.com/profile",
+      method: "PUT",
+      url: `https://challenge-chapter-9.herokuapp.com/profile/${id}`,
       timeout: 120000,
     })
       .then((response) => {
