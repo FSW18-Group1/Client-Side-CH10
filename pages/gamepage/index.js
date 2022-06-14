@@ -10,15 +10,19 @@ import Link from 'next/link'
 
 function GameDetail() {
   const {getLeaderboardResult, getLeaderboardLoading,getLeaderboardError} = useSelector((state) => state.leaderboardReducer)
-  const {token} = useSelector((state) => state.authenticatedReducer)
+  const {token, data} = useSelector((state) => state.authenticatedReducer)
   const dispatch = useDispatch();
   const count = 1
-
+  const id = data.id
+  // const user = getLeaderboardResult.filter((obj) => {
+  //   return obj.id == id
+  // })
   useEffect(()=> {
-    console.log('1.useEffet getleaderboard')
+    console.log('1.useEffet getleaderboard', id, getLeaderboardResult)
     document.title='gamepage pingsut'
     dispatch(getLeaderboard())
     dispatch(authenticatedAction())
+    // localStorage.setItem('score', points)
   }, [dispatch])
 
   return (
@@ -53,7 +57,7 @@ function GameDetail() {
                       <a className='ahref'>&laquo; back</a>
                     </button>
                   </Link>
-                  <Link href='/'>
+                  <Link href='/gamepage/pingsut'>
                     <button className="ms-2 px-4 btn btn-primary">
                       <a className='ahref'>play</a>
                     </button>

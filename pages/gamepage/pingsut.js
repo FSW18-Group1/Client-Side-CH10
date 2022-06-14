@@ -1,8 +1,12 @@
 import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from "react-redux";
+import Image from 'next/image';
 import scissors from "../../public/scissor.png";
 import paper from "../../public/paper.png";
 import rock from "../../public/rock.png";
-import Image from 'next/image';
+import axios from 'axios';
+import { useCookies } from 'react-cookie';
+import { authenticatedAction } from '../../redux/actions/authenticated'
 
 const Game_2 = () => {
   const [userChoice, setUserChoice] = useState(rock)
@@ -13,19 +17,10 @@ const Game_2 = () => {
   const [result, setResult] = useState(0)
   const [gameOver, setGameOver] = useState(false)
   const choices = [rock, paper, scissors]
-  const [data,setData] = useState({})
   const [authenticated, setAuthenticated] = useState(false)
 
-  // const getScore = () => {
-  //   axios.get(`${url}/1`)
-  //     .then((response) => {
-  //       setResult(response.data)
-  //     });
-  // }
+  const {token, data} = useSelector((state) => state.authenticatedReducer)
 
-  // const dataParse = JSON.parse(localStorage.getItem('data')) 
-  // console.log(dataParse)
-  // setData(dataParse)
 
   const handleClick = (value) => {
     setUserChoice(value)    
