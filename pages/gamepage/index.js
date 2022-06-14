@@ -57,7 +57,7 @@ function GameDetail() {
                       <a className='ahref'>&laquo; back</a>
                     </button>
                   </Link>
-                  <Link href='/gamepage/pingsut'>
+                  <Link href='https://letitgo-game.web.app/game'>
                     <button className="ms-2 px-4 btn btn-primary">
                       <a className='ahref'>play</a>
                     </button>
@@ -87,7 +87,7 @@ function GameDetail() {
                           return(
                             <tr key={player.id}>
                               <td className='text-white'>{count++}</td>
-                              <Link href={`/profile/${player.id}`}>
+                              <Link href={`https://letitgo-game.web.app/gamepage/playerprofile/${player.id}`}>
                                 <td><a className='text-white ahref'>{player.username}</a></td>
                               </Link>
                               <td className='text-white'>{player.score}</td>

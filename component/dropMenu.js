@@ -18,7 +18,7 @@ export default function DropMenu(props) {
                     <p className='text-black text-center no-space mb-2'>{user.email}</p>
                 </div>
                 <div className='bottom-line'></div>
-                <Link href={'/profile'}><a>setting</a></Link>
+                <Link href={'https://letitgo-game.web.app/profile'}><a>setting</a></Link>
                 <Link href={'#'}><a onClick={logout}>Logout</a></Link>
             </div>
         </div>
