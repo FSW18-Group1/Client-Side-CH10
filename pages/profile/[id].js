@@ -10,12 +10,12 @@ export default function ProfilePlayer({user}) {
     const {token} = useSelector((state) => state.authenticatedReducer)
     const router = useRouter()
     const id = router.query
-    console.log('5', id)
+    // console.log('id', id)
     const {getProfilePlayerEmail, getProfilePlayerUsername} = useSelector((state) => state.ProfilePlayerReducer)
-    console.log("10", getProfilePlayerEmail, getProfilePlayerUsername)
+    // console.log("get", getProfilePlayerEmail, getProfilePlayerUsername)
 
     useEffect(()=> {
-        console.log(id)
+        // console.log(id)
         document.title='profile'
         dispatch(authenticatedAction())
         dispatch(getProfilePlayer(id))

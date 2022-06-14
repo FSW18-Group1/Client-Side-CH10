@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { authenticatedAction } from "../../redux/actions/authenticated";
-import { putProfile } from "../../redux/actions/profile";
 import axios from "axios";
 
 export default function Profile() {
@@ -18,17 +17,15 @@ export default function Profile() {
 
   useEffect(() => {
     dispatch(authenticatedAction());
-    // dispatch(putProfile(bodyUpdate));
   }, []);
 
   useEffect(() => {
     setName(data.username);
     setEmail(data.email);
-    // dispatch(putProfile(bodyUpdate));
   }, [data]);
 
   const onSubmit = (e) => {
-    console.log("masuk gan");
+    // console.log("masuk gan");
     e.preventDefault();
     const bodyUpdate = {
       name,
@@ -45,10 +42,10 @@ export default function Profile() {
         localStorage.removeItem("data");
         localStorage.setItem("data", JSON.stringify(bodyUpdate));
         console.log("test");
-        // router.push("/");
+        router.push("/");
       })
       .catch((err) => {
-        console.log("3. gagal: " + err.message);
+        // console.log("3. gagal: " + err.message);
       });
   };
   return (

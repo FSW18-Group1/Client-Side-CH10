@@ -15,7 +15,7 @@ function GameDetail() {
   const count = 1
   const id = data.id
   // const user = getLeaderboardResult.filter((obj) => {
-  //   return obj.id == id
+  //   return obj.id == id 
   // })
   useEffect(()=> {
     console.log('1.useEffet getleaderboard', id, getLeaderboardResult)
