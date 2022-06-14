@@ -2,7 +2,7 @@ import { Form, Button, Dropdown } from "react-bootstrap";
 import { useSelector } from "react-redux/es/exports";
 
 export default function Profile() {
-  const [dataUser, setDataUser] = useState("");
+  const profile = useSelector((state) => state);
 
   return (
     <>
