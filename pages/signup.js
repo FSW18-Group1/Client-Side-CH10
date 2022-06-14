@@ -2,11 +2,12 @@ import Navbar from "../component/nav";
 import Footer from "../component/footer"
 import Submit from "../component/submit";
 import NoSubmit from "../component/submitNo";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {useDispatch} from "react-redux"
 import { signupAction } from "../redux/actions/register";
 import { useRouter } from "next/router";
 import axios from "axios";
+import Link from "next/link";
 
 export default function SignUp() {
     const [username, setUsername] = useState('');
@@ -72,7 +73,7 @@ export default function SignUp() {
                 </div>
                 <div className="form-bottom mx-auto py-2">
                     <p className="text-center py-2" style={{fontSize:'14px'}}>Already a member?</p>
-                    <NoSubmit command="SIGN IN"  />
+                    <div onClick={() => router.push('/login')}><NoSubmit command="SIGN IN"  /></div>
                 </div>
             </div> 
         </div>

@@ -1,11 +1,9 @@
 import axios from 'axios'
-// import { useRouter } from 'next/router';
 
 export const SIGNUP = "REGISTER";
 export const LOGIN = "LOGIN";
 
 export  const signupAction = (data) => {
-    // const router = useRouter()
     return (dispatch) => {
         console.log('2. masuk action');
         //loading
@@ -24,7 +22,6 @@ export  const signupAction = (data) => {
         axios.post(urlRegister, bodyRegister)
             .then((res) => {
                 console.log('3. berhasil: '+ res.data);
-                // router.push('/login')
                 dispatch({
                     type: SIGNUP,
                     payload: {
