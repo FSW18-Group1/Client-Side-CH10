@@ -101,7 +101,7 @@ width: 50px;
 height: 50px;
 border: none;
 border-radius: 50%;
-background-image: url("/public/anonim.jpg");
+background-image: url("anonim.jpg");
 background-size: contain;
 object-fit: cover;
 }
@@ -283,7 +283,7 @@ top: 2px;
 /* .banner-login{
 height: 100%;
   width: 100%;
-  background-image: url("/assets/login.jpg");
+  background-image: url("login.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -361,7 +361,7 @@ width: 100px;
 height: 100px;
 border: none;
 border-radius: 50%;
-background-image: url("public/anonim.jpg");
+background-image: url("anonim.jpg");
 background-size: contain;
 object-fit: cover;
 }
