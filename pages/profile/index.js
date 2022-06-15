@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { authenticatedAction } from "redux/actions/authenticated";
 import axios from "axios";
-import Link from 'next/link'
+import Link from "next/link";
 
 export default function Profile() {
   const profile = useSelector((state) => state);
@@ -13,7 +13,7 @@ export default function Profile() {
   const router = useRouter();
   const id = data.id;
 
-  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function Profile() {
   }, []);
 
   useEffect(() => {
-    setName(data.username);
+    setUsername(data.username);
     setEmail(data.email);
   }, [data]);
 
@@ -29,7 +29,7 @@ export default function Profile() {
     console.log("masuk gan", token);
     e.preventDefault();
     const bodyUpdate = {
-      name,
+      username,
       email,
       id,
     };
@@ -43,7 +43,7 @@ export default function Profile() {
         localStorage.removeItem("data");
         localStorage.setItem("data", JSON.stringify(bodyUpdate));
         // router.push("/");
-        console.log("res", JSON.stringify(bodyUpdate))
+        console.log("res", JSON.stringify(bodyUpdate));
       })
       .catch((err) => {
         // console.log("3. gagal: " + err.message);
@@ -68,14 +68,16 @@ export default function Profile() {
             <Form.Label>Username</Form.Label>
             <Form.Control
               type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               required
             />
           </Form.Group>
           <div className="d-flex justify-content-start">
             <div className="me-4 btn btn-danger">
-              <Link href={'/'}><a className='ahref'>back</a></Link>
+              <Link href={"/"}>
+                <a className="ahref">back</a>
+              </Link>
             </div>
             <Button variant="primary" type="submit">
               Edit data
