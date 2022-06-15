@@ -54,10 +54,10 @@ function GameDetail() {
                 <div className="d-flex justify-content-start">
                   <Link href='/'>
                     <button className="me-4 btn btn-danger">
-                      <a className='ahref'>&laquo; back</a>
+                      <a className='ahref'> back</a>
                     </button>
                   </Link>
-                  <Link href='https://letitgo-game.web.app/game'>
+                  <Link href='gamepage/pingsut'>
                     <button className="ms-2 px-4 btn btn-primary">
                       <a className='ahref'>play</a>
                     </button>
