@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { authenticatedAction } from "../../redux/actions/authenticated";
 import axios from "axios";
+import Link from 'next/link'
 
 export default function Profile() {
   const profile = useSelector((state) => state);
@@ -25,7 +26,7 @@ export default function Profile() {
   }, [data]);
 
   const onSubmit = (e) => {
-    // console.log("masuk gan");
+    console.log("masuk gan", token);
     e.preventDefault();
     const bodyUpdate = {
       name,
@@ -41,8 +42,8 @@ export default function Profile() {
       .then((res) => {
         localStorage.removeItem("data");
         localStorage.setItem("data", JSON.stringify(bodyUpdate));
-        console.log("test");
-        router.push("/");
+        // router.push("/");
+        console.log("res", JSON.stringify(bodyUpdate))
       })
       .catch((err) => {
         // console.log("3. gagal: " + err.message);
@@ -73,7 +74,9 @@ export default function Profile() {
             />
           </Form.Group>
           <div className="d-flex justify-content-start">
-            <button className="me-4 btn btn-danger">&laquo; back</button>
+            <div className="me-4 btn btn-danger">
+              <Link href={'/'}><a className='ahref'>back</a></Link>
+            </div>
             <Button variant="primary" type="submit">
               Edit data
             </Button>
