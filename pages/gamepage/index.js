@@ -3,7 +3,7 @@ import Table from 'react-bootstrap/Table'
 import Image from 'next/image';
 import {useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getLeaderboard } from "redux/actions/leaderBoard";
+import { getLeaderboard } from "redux/actions/leaderboard";
 import { authenticatedAction } from 'redux/actions/authenticated'
 import Link from 'next/link'
 
