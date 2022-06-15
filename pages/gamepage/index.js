@@ -1,10 +1,10 @@
-import poster from '../../public/paperockscissor.jpg'
+import poster from 'public/paperockscissor.jpg'
 import Table from 'react-bootstrap/Table'
 import Image from 'next/image';
 import {useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getLeaderboard } from "../../redux/actions/leaderBoard";
-import { authenticatedAction } from '../../redux/actions/authenticated'
+import { getLeaderboard } from "redux/actions/leaderBoard";
+import { authenticatedAction } from 'redux/actions/authenticated'
 import Link from 'next/link'
 
 

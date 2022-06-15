@@ -2,7 +2,7 @@ import { Form, Button, Dropdown } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { authenticatedAction } from "../../redux/actions/authenticated";
+import { authenticatedAction } from "redux/actions/authenticated";
 import axios from "axios";
 import Link from 'next/link'
 

@@ -2,8 +2,8 @@ import {Form, Button} from 'react-bootstrap'
 import {useRouter} from 'next/router'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from 'react';
-import { authenticatedAction } from '../../redux/actions/authenticated';
-import { getProfilePlayer } from '../../redux/actions/profileplayer';
+import { authenticatedAction } from 'redux/actions/authenticated';
+import { getProfilePlayer } from 'redux/actions/profileplayer';
 
 export default function ProfilePlayer({user}) {
     const  dispatch = useDispatch();

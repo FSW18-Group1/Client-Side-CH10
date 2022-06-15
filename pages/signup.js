@@ -1,10 +1,10 @@
-import Navbar from "../component/nav";
-import Footer from "../component/footer"
-import Submit from "../component/submit";
-import NoSubmit from "../component/submitNo";
+import Navbar from "component/nav";
+import Footer from "component/footer"
+import Submit from "component/submit";
+import NoSubmit from "component/submitNo";
 import { useState, useEffect } from "react";
 import {useDispatch} from "react-redux"
-import { signupAction } from "../redux/actions/register";
+import { signupAction } from "redux/actions/register";
 import { useRouter } from "next/router";
 import axios from "axios";
 import Link from "next/link";

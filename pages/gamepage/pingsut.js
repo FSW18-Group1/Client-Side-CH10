@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from 'next/router'
 import Image from 'next/image';
-import scissors from "../../public/scissor.png";
-import paper from "../../public/paper.png";
-import rock from "../../public/rock.png";
+import scissors from "public/scissor.png";
+import paper from "public/paper.png";
+import rock from "public/rock.png";
 import axios from 'axios';
 import Link from 'next/link'
 import { useCookies } from 'react-cookie';
-import { authenticatedAction } from '../../redux/actions/authenticated'
+import { authenticatedAction } from 'redux/actions/authenticated'
 
 const Game_2 = () => {
   const [userChoice, setUserChoice] = useState(rock)

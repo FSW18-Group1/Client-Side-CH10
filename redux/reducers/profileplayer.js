@@ -1,8 +1,8 @@
 import { GET_PROFILEPLAYER } from "../actions/profileplayer"
 
 const initialState = {
-  getProfilePlayerEmail: false,
-  getProfilePlayerUsername: false
+  getProfilePlayerEmail: ' ',
+  getProfilePlayerUsername: ' '
 }
 console.log("5", initialState)
 
