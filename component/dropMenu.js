@@ -12,7 +12,7 @@ export default function DropMenu(props) {
 
     return(
         <div className="dropdown">
-            <button className="profile"></button>
+            <button className="profile">hahaha</button>
             <div className="dropdown-content">
                 <div>
                     <p className='text-black text-center no-space'>{user.username}</p>
