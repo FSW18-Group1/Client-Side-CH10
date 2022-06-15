@@ -7,8 +7,8 @@ import Content from '../component/content'
 import Footer from '../component/footer'
 import SearchBar from '../component/search'
 import DropMenu from '../component/dropMenu';
-import { authenticatedAction } from '../redux/actions/authenticated'
-import { getLeaderboard } from "../redux/actions/leaderBoard";
+import { authenticatedAction } from 'redux/actions/authenticated'
+import { getLeaderboard } from "redux/actions/leaderBoard";
 
 
 export default function Home() {
