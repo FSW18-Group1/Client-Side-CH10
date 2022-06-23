@@ -1,6 +1,8 @@
 
 import Link from 'next/link'
 import { useRouter } from 'next/router';
+import Image from 'next/image';
+import anonimm from 'public/anonimm.png'
 
 export default function DropMenu(props) {
     const {user} = props
@@ -12,7 +14,13 @@ export default function DropMenu(props) {
 
     return(
         <div className="dropdown">
-            <button className="profile">hahaha</button>
+            <button className="profile">
+                <Image 
+                  height={200}
+                  width={200}
+                  src={anonimm} alt="ada gambar"
+                />
+            </button>
             <div className="dropdown-content">
                 <div>
                     <p className='text-black text-center no-space'>{user.username}</p>
