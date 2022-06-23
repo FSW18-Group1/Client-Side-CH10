@@ -57,7 +57,7 @@ export default function Login() {
                     <h3 className="text-center mb-5 fw-light">Sign In</h3>
                     <form onSubmit={(e)=> handleSubmit(e)}> 
                         <div className="mb-4">
-                            <input type="text" className="form-input" id="InputEmail1" placeholder="Username" value={username}  onChange={(e) => setUsername(e.target.value)} required  />
+                            <input type="text" className="form-input" id="InputUsername" placeholder="Username" value={username}  onChange={(e) => setUsername(e.target.value)} required  />
                         </div>
                         <div className="mb-4">
                             <input type="email" className="form-input" id="InputEmail1" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required  />

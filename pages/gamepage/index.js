@@ -18,9 +18,9 @@ function GameDetail() {
   //   return obj.id == id 
   // })
   useEffect(()=> {
-    console.log('1.useEffet getleaderboard', id, getLeaderboardResult)
     document.title='gamepage pingsut'
     dispatch(getLeaderboard())
+    console.log('1.useEffet getleaderboard', id, getLeaderboardResult)
     dispatch(authenticatedAction())
     // localStorage.setItem('score', points)
   }, [dispatch])
